@@ -68,8 +68,8 @@ Short of installing Visual Studio Code as a debugger, or having rust docs open a
 
 #### Example: What string type is returned by lines() method?
 ```
- 48         for line in contents.lines() { // `lines` returns an iterator
- 49             line.test_method();
+ 48         for line in contents.lines() {
+ 49             line.test_method(); // Calling a bogus method to throw an error about the type
 ```
 
 ```
