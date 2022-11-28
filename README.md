@@ -60,3 +60,27 @@ NOTE: Binary can be manually run:
 ./$ rustup update
 ```
 
+## debugging
+### Type information
+It seems like Visual Studio code is the best way to develop and debug Rust. Mostly this is because of the `rust-analyzer` plugin, which dynamically displays type information that the rust compiler will wind up inferring. This is convinient because 1) The Rust type syntax is too intricate to manually type, 2) Rust is a low level systems language, where information about types can be significant. An example is Strings, clearly knowing when working with `String` or `&str`.
+  
+Short of installing Visual Studio Code as a debugger, or having rust docs open all the time, it worked to call a bogus method and then run `./ cargo check`.
+
+#### Example: What string type is returned by lines() method?
+```
+ 48         for line in contents.lines() { // `lines` returns an iterator
+ 49             line.test_method();
+```
+
+```
+cmgrassee@penguin:~/kvstore$ cargo check
+    Checking kvstore v0.1.0 (/home/cmgrassee/kvstore)
+error[E0599]: no method named `test_method` found for reference `&str` in the current scope
+  --> src/main.rs:49:18
+   |
+49 |             line.test_method();
+   |                  ^^^^^^^^^^^ method not found in `&str`
+
+```
+
+
