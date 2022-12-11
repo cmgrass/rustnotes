@@ -60,6 +60,11 @@ NOTE: Binary can be manually run:
 ./$ rustup update
 ```
 
+### Local rust documents
+```
+./$ rustup doc
+```
+
 ## debugging
 ### Type information
 It seems like Visual Studio code is the best way to develop and debug Rust. Mostly this is because of the `rust-analyzer` plugin, which dynamically displays type information that the rust compiler will wind up inferring. This is convinient because 1) The Rust type syntax is too intricate to manually type, 2) Rust is a low level systems language, where information about types can be significant. An example is Strings, clearly knowing when working with `String` or `&str`.
